@@ -106,7 +106,25 @@ int positiveInteger = 0;
      */
     
     public void digits() {
-
+int positiveInt = 0;
+    int oddDigitSum = 0;
+    char digitToTest = 0;
+    int numDigit = 0;
+    while (positiveInt <= 0) {
+      System.out.print("Positive integer: ");
+      positiveInt = in.nextInt();
+    }
+    String intForOdds = String.valueOf(positiveInt);
+    int intOddLength = (intForOdds.length()) ;
+    int indexNumber = 0;
+    System.out.println();
+    while (indexNumber < intOddLength) {
+      digitToTest = intForOdds.charAt(indexNumber);
+      numDigit = Character.getNumericValue(digitToTest);
+      oddDigitSum = oddDigitSum + (numDigit * (numDigit % 2));
+      indexNumber++;
+    }
+    System.out.println(oddDigitSum + ".\n");
     }
     
     /*
@@ -118,7 +136,21 @@ int positiveInteger = 0;
      */
     
     public void average() {
-
+int nonNegInt = 0;
+    double sumOfIntegers = 0;
+    double integerCounter = 0;
+    while (nonNegInt >= 0) {
+      System.out.print("Non-negative integer: ");
+      nonNegInt = in.nextInt();
+      if (nonNegInt > 0) {
+        sumOfIntegers += nonNegInt;
+        integerCounter++;
+      }
+    }
+    System.out.println();
+    double nonNegAverage = sumOfIntegers / integerCounter;
+    double averageWithDec = (Math.round(nonNegAverage * 100)) / 100;
+    System.out.printf("%,.2f.\n\n", nonNegAverage);
     }
     
     /*
