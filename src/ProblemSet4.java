@@ -52,7 +52,24 @@ public class ProblemSet4 {
      */
     
     public void sum() {
-
+System.out.println();
+    int lowerBound = 1;
+    int upperBound = -1;
+    int integerSum = 0;
+    while ((lowerBound > upperBound) || (lowerBound % 1 != 0) || (upperBound % 1 != 0)){
+      System.out.print("Lower bound: ");
+      lowerBound = in.nextInt();
+      System.out.print("Upper bound: ");
+      upperBound = in.nextInt();
+    }
+    System.out.println();
+    while (lowerBound <= upperBound) {
+      if (lowerBound % 2 == 0) {
+        integerSum = (integerSum + lowerBound);
+      }
+      lowerBound++;
+    }
+    System.out.printf("%,2d.\n\n", integerSum);
     }
     
     /*
@@ -63,7 +80,22 @@ public class ProblemSet4 {
      */
     
     public void reverse() {
-
+int positiveInteger = 0;
+    String digitList = "";
+    while (positiveInteger <= 0) {
+      System.out.print("Positive integer: ");
+      positiveInteger = in.nextInt();
+    }
+    String integer = String.valueOf(positiveInteger);
+    int intLength = (integer.length()) - 1;
+    int indexNumber = intLength;
+    System.out.println();
+    while (indexNumber > 0) {
+      digitList = digitList + integer.charAt(indexNumber) + ", ";
+      indexNumber--;
+    }
+    digitList += integer.charAt(0);
+    System.out.println(digitList + ".\n");
     }
     
     /*
