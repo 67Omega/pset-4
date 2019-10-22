@@ -160,7 +160,22 @@ int nonNegInt = 0;
      */
     
     public void prime() {
-
+int intForPrime = 0;
+    String primeOrNo = "Prime";
+    while (intForPrime <= 0) {
+      System.out.print("Non-negative integer: ");
+      intForPrime = in.nextInt();
+    }
+    System.out.println();
+    for (int i = 2; i < intForPrime; i++) {
+      if (intForPrime % i == 0) {
+        primeOrNo = "Not prime.";
+      } else {
+        primeOrNo = "Prime.";
+      }
+    }
+    System.out.println(primeOrNo);
+    System.out.println();
     }
     
     /*
@@ -171,7 +186,19 @@ int nonNegInt = 0;
      */
     
     public void fibonacci() {
-
+double fibIndex = 0;
+    double goldenRatio = 1.618034;
+    while ((fibIndex <= 0) || (fibIndex > 92) || (fibIndex % 1 != 0)) {
+      System.out.print("Positive integer: ");
+      fibIndex = in.nextInt();
+    }
+    System.out.println();
+    double calculationOne = Math.pow(goldenRatio, fibIndex);
+    double calculationTwo = (Math.pow((1 - goldenRatio) * -1, fibIndex));
+    double calculationThree = Math.sqrt(5);
+    double fibNumber = Math.round((calculationOne - calculationTwo) / calculationThree);
+    int fibNoZero = (int) fibNumber;
+    System.out.printf("%d.\n\n", fibNoZero);
     }
     
     /*
