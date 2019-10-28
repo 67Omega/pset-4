@@ -194,7 +194,7 @@ double fibIndex = 0;
     }
     System.out.println();
     double calculationOne = Math.pow(goldenRatio, fibIndex);
-    double calculationTwo = (Math.pow((1 - goldenRatio) * -1, fibIndex));
+    double calculationTwo = Math.pow(1 - goldenRatio, fibIndex);
     double calculationThree = Math.sqrt(5);
     double fibNumber = Math.round((calculationOne - calculationTwo) / calculationThree);
     int fibNoZero = (int) fibNumber;
@@ -208,7 +208,23 @@ double fibIndex = 0;
      */
     
     public void factors() {
-
+int posInteger = 0;
+    String factorList = "";
+    while ((posInteger <= 0) || (posInteger % 1 != 0)) {
+      System.out.print("Positive integer: ");
+      posInteger = in.nextInt();
+    }
+    System.out.println();
+    for (int i = 2; i <= Math.sqrt(posInteger); i++) {
+      if (posInteger % i == 0) {
+        if (posInteger / i == i){
+          factorList = factorList + ", " + i;
+        } else {
+          factorList = factorList + ", " + i + ", " + (posInteger / i);
+        }
+      }
+    }
+    System.out.println("1, " + posInteger + factorList + ".\n");
     }
     
     /*
@@ -219,7 +235,25 @@ double fibIndex = 0;
      */
     
     public void mario() {        
-
+int marioHeight = 0;
+    String halfPyramid = "";
+    int marioRow = 0;
+    while ((marioHeight <= 0) || (marioHeight > 24) || (marioHeight % 1 != 0)) {
+      System.out.print("Height: ");
+      marioHeight = in.nextInt();
+    }
+    System.out.println();
+    for (int i = 1; i <= marioHeight; i++) {
+      marioRow += 1;
+      for (int j = 1; j <= (marioHeight - marioRow); j++) {
+        halfPyramid = halfPyramid + " ";
+      }
+      for (int h = 1; h <= ((marioHeight + 1) - (marioHeight - marioRow)); h++) {
+        halfPyramid = halfPyramid + "#";
+      }
+      halfPyramid = halfPyramid + "\n";
+    }
+    System.out.println(halfPyramid);
     }
     
     /*
