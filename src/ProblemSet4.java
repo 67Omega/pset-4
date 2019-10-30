@@ -264,7 +264,29 @@ int marioHeight = 0;
      */
     
     public void luigi() {
-
+int luigiHeight = 0;
+    String fullPyramid = "";
+    int luigiRow = 0;
+    while ((luigiHeight <= 0) || (luigiHeight > 24) || (luigiHeight % 1 != 0)) {
+      System.out.print("Height: ");
+      luigiHeight = in.nextInt();
+    }
+    System.out.println();
+    for (int i = 1; i <= luigiHeight; i++) {
+      luigiRow += 1;
+      for (int j = 1; j <= (luigiHeight - luigiRow); j++) {
+        fullPyramid = fullPyramid + " ";
+      }
+      for (int h = 1; h <= ((luigiHeight + 1) - (luigiHeight - luigiRow)); h++) {
+        fullPyramid = fullPyramid + "#";
+      }
+      fullPyramid = fullPyramid + "  ";
+      for (int f = 1; f <= ((luigiHeight + 1) - (luigiHeight - luigiRow)); f++) {
+        fullPyramid = fullPyramid + "#";
+      }
+      fullPyramid = fullPyramid + "\n";
+    }
+    System.out.println(fullPyramid);
     }
     
     /*
@@ -275,6 +297,50 @@ int marioHeight = 0;
      */
     
     public void credit() {
-        
+        String cardNumber = "";
+    int sumDigits = 0;
+    int singleDigit = 0;
+    int sumOtherDigits = 0;
+    int doubledDigit = 0;
+    String cardType = "";
+    String doubledString = "";
+    boolean cardValidity = true;
+    while (cardNumber.isEmpty() == true) {
+      System.out.print("Number: ");
+      cardNumber = in.next();
+    }
+    System.out.println();
+    for (int i = cardNumber.length(); i >= 1; i--) {
+      if ((cardNumber.length() - i) % 2 == 0) {
+        sumOtherDigits += (cardNumber.charAt(i - 1)) - '0';
+      } else {
+        singleDigit = ((cardNumber.charAt(i - 1)) - '0');
+        doubledDigit = singleDigit * 2;
+        doubledString = Integer.toString(doubledDigit);
+        if (doubledString.length() == 2) {
+          sumDigits += (((doubledString.charAt(0) - '0') + (doubledString.charAt(1)) - '0'));
+        } else {
+          sumDigits += (doubledString.charAt(0) - '0');
+        }
+      }
+    }
+    String cardLength = Integer.toString(cardNumber.length());
+    int checksum = sumDigits + sumOtherDigits;
+    String checksumString = Integer.toString(checksum);
+    cardValidity = ((checksumString.charAt((checksumString.length()) - 1)) == '0');
+    if (((cardLength.equals("15")) && (((cardNumber.substring(0, 2)).equals("34")) || ((cardNumber.substring(0, 2)).equals("37"))))) {
+      cardType = "Amex";
+    } else if (((cardLength.equals("13")) || (cardLength.equals("16"))) && ((cardNumber.charAt(0)) == '4')) {
+      cardType = "Visa";
+    } else if (((cardLength.equals("16")) && (((cardNumber.substring(0, 2)).equals("51")) || ((cardNumber.substring(0, 2)).equals("52")) || ((cardNumber.substring(0, 2)).equals("53")) || ((cardNumber.substring(0, 2)).equals("54")) || ((cardNumber.substring(0, 2)).equals("55"))))) {
+      cardType = "Mastercard";
+    } else {
+      cardValidity = false;
+    }
+    if (cardValidity == true) {
+      System.out.println(cardType + ".\n");
+    } else {
+      System.out.println("Invalid.\n");
+    }
     }
 }
