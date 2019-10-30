@@ -342,5 +342,5 @@ int luigiHeight = 0;
     } else {
       System.out.println("Invalid.\n");
     }
-    }
+  }
 }
